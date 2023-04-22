@@ -12,7 +12,7 @@ const countryInfo = document.querySelector('.country-info');
 inputEl.addEventListener(
   'input',
   debounce(async ev => {
-    const countryName = ev.target.value;
+    const countryName = ev.target.value.trim();
 
     if (countryName === '') {
       countryListEl.innerHTML = '';
@@ -21,6 +21,7 @@ inputEl.addEventListener(
     }
 
     const countries = await fetchCountries(countryName);
+
     if (countries.length > 10) {
       Notiflix.Notify.info(
         'Too many matches found. Please enter a more specific name.'
@@ -33,12 +34,16 @@ inputEl.addEventListener(
         )
         .join('');
     }
+
     if (countries.length === 1) {
-      countryInfo.innerHTML = `
-      <p>Capital: ${countries[0].capital}</p>
-      <p>Population: ${countries[0].populations}</p>
-      <p>Languages: ${Object.values(countries[0].languages.join(', '))}</p>
-      `;
+      countryInfo.innerHTML = countries
+        .map(
+          country => `
+          <p>Capital: ${country.capital}</p>
+          <p>Population: ${country.population}</p>
+          <p>Languages: ${Object.values(country.languages)}</p>`
+        )
+        .join(', ');
     }
   }, DEBOUNCE_DELAY)
 );
