@@ -39,9 +39,15 @@ inputEl.addEventListener(
       countryInfo.innerHTML = countries
         .map(
           country => `
-          <p>Capital: ${country.capital}</p>
-          <p>Population: ${country.population}</p>
-          <p>Languages: ${Object.values(country.languages)}</p>`
+          <p><span style="font-weight: bold">Capital:</span> ${
+            country.capital
+          }</p>
+          <p><span style="font-weight: bold">Population:</span> ${
+            country.population
+          }</p>
+          <p><span style="font-weight: bold">Languages:</span> ${Object.values(
+            country.languages
+          )}</p>`
         )
         .join(', ');
     }

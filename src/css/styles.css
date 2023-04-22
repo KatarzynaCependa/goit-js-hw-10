@@ -10,7 +10,13 @@ body {
   background-color: #fafafa;
   color: #212121;
   line-height: 1.5;
-  padding-left: 0px;
+  background-image: radial-gradient(#cf9fff 20%, transparent 20%);
+  background-position: 0 0, 50px 50px;
+  background-size: 6px 6px;
+}
+
+img {
+  margin-right: 10px;
 }
 
 #search-box {
@@ -25,6 +31,6 @@ body {
   list-style: none;
 }
 
-img {
-  gap: 10px;
+.country-list {
+  padding: 0px;
 }
