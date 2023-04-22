@@ -10,6 +10,7 @@ body {
   background-color: #fafafa;
   color: #212121;
   line-height: 1.5;
+  padding-left: 0px;
 }
 
 #search-box {
@@ -22,4 +23,8 @@ body {
 .country-list,
 .country-info {
   list-style: none;
+}
+
+img {
+  gap: 10px;
 }
